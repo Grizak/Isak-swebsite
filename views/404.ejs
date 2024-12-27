@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 - Page Not Found</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f0f0f0;
+        color: #333;
+        text-align: center;
+        padding: 50px;
+        margin: 0;
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        font-size: 72px;
+        margin: 0;
+        color: #e74c3c;
+      }
+      h2 {
+        font-size: 24px;
+        margin-top: 0;
+      }
+      p {
+        font-size: 18px;
+        line-height: 1.6;
+      }
+      .url {
+        font-weight: bold;
+        color: #3498db;
+      }
+      .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #3498db;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+      .btn:hover {
+        background-color: #2980b9;
+      }
+      #funFact {
+        font-style: italic;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>404</h1>
+      <img src="/img/404.png" width="540px" />
+      <h2>Oops! Page Not Found</h2>
+      <p>
+        We couldn't find the page you were looking for at
+        <span class="url"><%= url %></span>.
+      </p>
+      <p>But don't worry, even the best explorers sometimes get lost!</p>
+      <a href="/" class="btn">Go Back Home</a>
+      <p id="funFact">Loading a fun fact about 404...</p>
+    </div>
+
+    <script>
+      const funFacts = [
+        // History and Origin
+        "404 was one of the standard HTTP status codes defined in 1992 as part of the Hypertext Transfer Protocol (HTTP).",
+        "It's rumored that 404 might be named after Room 404 at CERN, where the first web servers were hosted, but this is a myth.",
+        "The default 404 error message was initially bland, stating something like: '404 Not Found: The requested URL was not found on this server.'",
+
+        // Design and Creativity
+        "Many websites have turned their 404 pages into works of art, like GitHub's Octocat in space or Netflix's static glitch effect.",
+        "Some websites include games or fun experiences on their 404 pages, such as Google Chrome's Dinosaur Game or Pixar's references to lost characters.",
+        "Some websites hide Easter eggs on their 404 pages, like Marvel's comic-style graphics referencing their vast universe.",
+
+        // Technical and Interesting Uses
+        "Custom 404 pages help reduce bounce rates and improve the user experience by guiding visitors back to the main site.",
+        "A 404 page can occur due to a typo in the URL or misconfigured server, not just because a page is missing.",
+        "A 'soft 404' occurs when a server returns a success status code (200) for a non-existent page, confusing search engines.",
+
+        // Cultural Impact
+        "Many people mistakenly believe '404' refers to a server problem, but it means the requested page doesn’t exist or has been moved.",
+        "In slang, '404' means clueless or lost, as in: 'His brain is 404.'",
+        "The term '404' occasionally appears in pop culture as a clever nod to tech-savvy audiences.",
+
+        // Pop Culture
+        "Artists have created songs and artworks inspired by the 404 error, symbolizing 'loss' or 'being lost.'",
+        "The term '404' appears in movies and shows, often as an inside joke for tech enthusiasts.",
+
+        // Educational Uses
+        "Web developers use 404 pages to teach new coders how HTTP requests and status codes work.",
+        "Coding tutorials often start by showing how to create a custom 404 page as a first project.",
+
+        // Unique 404 Pages
+        "Wikipedia's 404 page features a search box and says: 'The page does not exist. You can create it!'",
+        "Lego's 404 page shows a broken Lego figure with the message: 'Uh oh, the page you’re looking for has fallen apart.'",
+        "IMDB's 404 page displays famous movie quotes related to getting lost or finding things.",
+
+        // Humorous Messages
+        "Some 404 pages use puns, like: 'This page is taking a long vacation,' or, 'You’ve discovered a void where this page should be.'",
+        "Developers sometimes embed jokes about being overworked or disappearing content on their 404 pages.",
+
+        // Fun and Educational
+        "NASA and space-themed sites often play with the idea of being 'lost in space' on their 404 pages.",
+        "Some companies create elaborate fake 404 errors as pranks for April Fool's Day.",
+
+        // Did You Know?
+        "Among all HTTP status codes, 404 is the most recognized by the general public.",
+        "If you've saved a webpage offline and try to access a non-existent page, you still see a 404 message!",
+        "Good 404 pages can improve website rankings by reducing frustration and guiding users effectively.",
+      ];
+
+      window.onload = function () {
+        const funFactElement = document.getElementById("funFact");
+        const randomFact =
+          funFacts[Math.floor(Math.random() * funFacts.length)];
+        funFactElement.textContent = "Fun Fact: " + randomFact;
+      };
+    </script>
+  </body>
+</html>
