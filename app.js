@@ -84,7 +84,24 @@ app.use((req, res, next) => {
 app.get("/", async (req, res) => {
   const username = "Grizak";
   const repos = await fetchGitHubRepos(username);
-  res.render("index", { repos });
+
+  // Set the reference date (January 29, 2011)
+  const referenceDate = new Date("2011-01-29");
+  const currentDate = new Date();
+
+  // Calculate the difference in years
+  let yearsDifference = currentDate.getFullYear() - referenceDate.getFullYear();
+  const monthsDifference = currentDate.getMonth() - referenceDate.getMonth();
+
+  // Adjust if the current month and day are earlier than the reference date
+  if (
+    monthsDifference < 0 ||
+    (monthsDifference === 0 && currentDate.getDate() < referenceDate.getDate())
+  ) {
+    yearsDifference -= 1;
+  }
+
+  res.render("index", { repos, years: yearsDifference });
 });
 
 app.get("/skills/:name", async (req, res) => {
