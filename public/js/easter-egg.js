@@ -35,5 +35,5 @@ function activateEasterEgg() {
   setTimeout(() => {
     document.body.classList.remove("konami-active");
     document.body.removeChild(partyMessage);
-  }, 15000);
+  }, 5000);
 }
