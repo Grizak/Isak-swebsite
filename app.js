@@ -50,7 +50,7 @@ app.use(async (req, res, next) => {
     path: req.path, // Track the path being visited
   };
 
-  logger.info("Received analytics data:", analyticsData);
+  logger.info("Received analytics data:" + analyticsData);
 
   next();
 });
