@@ -35,6 +35,26 @@ const skillShema = new mongoose.Schema({
 
 const Skill = mongoose.model("Skill", skillShema);
 
+app.use(async (req, res, next) => {
+  const urlParams = new URLSearchParams(req.originalUrl.split("?")[1] || "");
+
+  const analyticsData = {
+    utm_source: urlParams.get("utm_source") || null,
+    utm_medium: urlParams.get("utm_medium") || null,
+    utm_campaign: urlParams.get("utm_campaign") || null,
+    utm_term: urlParams.get("utm_term") || null,
+    utm_content: urlParams.get("utm_content") || null,
+    ip: req.ip, // Capture IP address
+    userAgent: req.headers["user-agent"], // Capture user agent
+    timestamp: new Date(), // Add timestamp
+    path: req.path, // Track the path being visited
+  };
+
+  logger.info("Received analytics data:", analyticsData);
+
+  next();
+});
+
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
