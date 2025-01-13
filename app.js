@@ -130,7 +130,7 @@ app.get("/skills/:name", async (req, res) => {
     res.render("skill", { skill });
   } catch (error) {
     logger.error("Error fetching skill:" + error);
-    res.status(404).send("Skill not found");
+    next();
   }
 });
 
