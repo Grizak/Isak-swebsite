@@ -124,7 +124,7 @@ app.get("/", async (req, res) => {
   res.render("index", { repos, years: yearsDifference });
 });
 
-app.get("/skills/:name", async (req, res) => {
+app.get("/skills/:name", async (req, res, next) => {
   try {
     const skill = await Skill.findOne({ name: req.params.name });
     res.render("skill", { skill });
